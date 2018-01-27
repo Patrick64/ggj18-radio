@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoringController : MonoBehaviour
 {
@@ -16,12 +17,20 @@ public class ScoringController : MonoBehaviour
 			currentScoreIndex++;
 			if(currentScoreIndex >= ScoringLights.Length)
 			{
-				Debug.Log("A WINNER IS YOU!");
+				SceneManager.LoadScene(2);
 			}
 		}
 		else
 		{
 			Debug.Log("Maths broke");
+		}
+	}
+
+	private void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			SceneManager.LoadScene(0);
 		}
 	}
 }

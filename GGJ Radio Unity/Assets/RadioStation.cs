@@ -13,7 +13,7 @@ public class RadioStation : MonoBehaviour
 	public Slider TestSlider;
     public ArialTuning arial;
 	public string solution;
-	public bool isBroadcasting = false;
+	public bool isBroadcasting;
 
 	void Start ()
 	{
@@ -22,11 +22,13 @@ public class RadioStation : MonoBehaviour
 
 	public void ActivateAudio()
 	{
+		isBroadcasting = true;
 		radioSource.Play();
 	}
 
 	public void DeactivateAudio()
 	{
+		isBroadcasting = false;
 		radioSource.Stop();
 	}
 

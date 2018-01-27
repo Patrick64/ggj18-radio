@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoringController : MonoBehaviour {
+public class ScoringController : MonoBehaviour
+{
+	public Animator[] ScoringLights;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private int currentScoreIndex = 0;
+
+	public void ScoreTriggered()
+	{
+		if(currentScoreIndex < ScoringLights.Length)
+		{
+			ScoringLights[currentScoreIndex].SetTrigger("Scored");
+			currentScoreIndex++;
+			if(currentScoreIndex >= ScoringLights.Length)
+			{
+				Debug.Log("A WINNER IS YOU!");
+			}
+		}
+		else
+		{
+			Debug.Log("Maths broke");
+		}
 	}
 }

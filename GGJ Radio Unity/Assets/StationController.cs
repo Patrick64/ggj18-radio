@@ -5,6 +5,12 @@ using UnityEngine;
 public class StationController : MonoBehaviour
 {
 	public RadioStation[] RadioStations;
+	private ScoringController scoreController;
+
+	private void Awake()
+	{
+		scoreController = GetComponent<ScoringController>();
+	}
 
 	private void OnEnable()
 	{
@@ -25,7 +31,7 @@ public class StationController : MonoBehaviour
 			{
 				solutionFound = true;
 				RadioStations[i].DeactivateAudio();
-				//ToDo: increment solution count
+				scoreController.ScoreTriggered();
 				break;
 			}
 		}

@@ -8,6 +8,7 @@ public class ArialTuning : MonoBehaviour {
     public Image arialSprite;
     private float xAxis;
     private float yAxis, angle;
+    private float arialSpriteAngle = 0;
 	// Use this for initialization
 	void Start () {
 		
@@ -26,14 +27,21 @@ public class ArialTuning : MonoBehaviour {
         {
             if (angle < -90) angle = -90;
             if (angle > 90) angle = 90;
-            arialSprite.transform.rotation = Quaternion.Euler(0, 0, angle);
+            arialSpriteAngle = angle;
+            //arialSprite.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
         //arialSprite.transform.rotation.Set(0f, 0f, angle, 0f);
         //arialSprite.rectTransform.rotation.Set(0f, 0f, angle, 0f);
 
 
-        //float keySliderChange = Input.GetAxis("HorizontalKey") * 0.1f;
-        //slider.value += keySliderChange * Time.deltaTime;
+        float keyChange = Input.GetAxis("VerticalKey") ;
+        arialSpriteAngle += keyChange * Time.deltaTime * 200;
+        //float newAngle = arialSprite.transform.rotation.z + keyChange * Time.deltaTime * 100;
+
+        if (arialSpriteAngle < -90) arialSpriteAngle = -90;
+        if (arialSpriteAngle > 90) arialSpriteAngle = 90;
+
+        arialSprite.transform.rotation = Quaternion.Euler(0, 0, arialSpriteAngle);
 
     }
 }

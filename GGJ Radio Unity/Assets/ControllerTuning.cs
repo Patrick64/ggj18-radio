@@ -29,7 +29,10 @@ public class ControllerTuning : MonoBehaviour {
         }
         
         this.lastPosition = newPosition;
-        
-        
+
+
+        float keySliderChange = Input.GetAxis("HorizontalKey") * 0.1f;
+        slider.value += keySliderChange * Time.deltaTime;
+
     }
 }

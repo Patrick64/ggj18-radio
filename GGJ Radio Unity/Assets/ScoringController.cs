@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ScoringController : MonoBehaviour
 {
 	public Animator[] ScoringLights;
+	public Animator faderAnimator;
 
 	private int currentScoreIndex = 0;
 
@@ -17,7 +18,7 @@ public class ScoringController : MonoBehaviour
 			currentScoreIndex++;
 			if(currentScoreIndex >= ScoringLights.Length)
 			{
-				SceneManager.LoadScene(2);
+				faderAnimator.SetTrigger("FadeOutScreen");
 			}
 		}
 		else

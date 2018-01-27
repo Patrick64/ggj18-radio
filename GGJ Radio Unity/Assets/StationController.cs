@@ -46,7 +46,6 @@ public class StationController : MonoBehaviour
 				solutionFound = true;
 				RadioStations[i].DeactivateAudio();
 				scoreController.ScoreTriggered();
-				break;
 			}
 		}
 		

@@ -41,7 +41,7 @@ public class ArialTuning : MonoBehaviour {
         if (arialSpriteAngle < -90) arialSpriteAngle = -90;
         if (arialSpriteAngle > 90) arialSpriteAngle = 90;
 
-        arialSprite.transform.rotation = Quaternion.Euler(0, 0, arialSpriteAngle);
+        arialSprite.transform.rotation = Quaternion.Euler(0, 0, arialSpriteAngle+90);
 
     }
 }

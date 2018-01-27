@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   arialSprite: {fileID: 1396899777}
-  arialSpriteAngle: 0
+  arialSpriteAngle: 45
 --- !u!114 &1519659967
 MonoBehaviour:
   m_ObjectHideFlags: 0

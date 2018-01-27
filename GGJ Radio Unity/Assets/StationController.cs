@@ -5,6 +5,7 @@ using UnityEngine;
 public class StationController : MonoBehaviour
 {
 	public RadioStation[] RadioStations;
+	public AudioSource RadioStatic;
 	private ScoringController scoreController;
 
 	private void Awake()
@@ -20,6 +21,19 @@ public class StationController : MonoBehaviour
 	private void OnDisable()
 	{
 		KeypadController.KeycodeEntered -= SolutionSent;
+	}
+
+	private void Update()
+	{
+		float highestVolume = 0f;
+		foreach(RadioStation item in RadioStations)
+		{
+			if(item.radioSource.volume > highestVolume)
+			{
+				highestVolume = item.radioSource.volume;
+			}
+		}
+		RadioStatic.volume = 1f - highestVolume;
 	}
 
 	private void SolutionSent(string solution)

@@ -16,6 +16,7 @@ public class ScoringController : MonoBehaviour
 		{
 			ScoringLights[currentScoreIndex].SetTrigger("Scored");
 			currentScoreIndex++;
+
 			if(currentScoreIndex >= ScoringLights.Length)
 			{
 				faderAnimator.SetTrigger("FadeOutScreen");

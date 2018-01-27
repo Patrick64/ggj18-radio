@@ -17,11 +17,16 @@ public class RadioStation : MonoBehaviour
 	public bool isBroadcasting;
     private AudioEchoFilter echoFilter;
     private AudioDistortionFilter distortionFilter;
+    public RadioStation[] stationsToTurnOnWhenComplete; 
+
 	void Start ()
 	{
 		radioSource = GetComponent<AudioSource>();
         echoFilter = GetComponent<AudioEchoFilter>();
         distortionFilter = GetComponent<AudioDistortionFilter>();
+        distortionFilter.enabled = false;
+        echoFilter.enabled = false;
+
     }
 
 	public void ActivateAudio()
@@ -51,7 +56,7 @@ public class RadioStation : MonoBehaviour
             
             float distortionLevel = Mathf.Abs(arialPosition - currentArialPosition) < arialGap * 4 ? Mathf.Abs(arialPosition - currentArialPosition) / arialGap / 4 : 1;
             float speed = 5*distortionLevel;
-            float varyNumber = 0.3f + (Time.time % (4 / speed) > (2 / speed) ? (2 / speed) - Time.time % (2 / speed) : Time.time % (4 / speed)) * speed;
+            float varyNumber = 0.5f + (Time.time % (4 / speed) > (2 / speed) ? (2 / speed) - Time.time % (2 / speed) : Time.time % (4 / speed)) * speed;
             bool isArialInPosition = currentArialPosition > arialPosition - arialGap && currentArialPosition < arialPosition + arialGap;
             if (isArialInPosition)
             {
@@ -62,11 +67,11 @@ public class RadioStation : MonoBehaviour
             } else
             {
                 radioSource.pitch = varyNumber;
-                echoFilter.enabled = true;
+                // echoFilter.enabled = true;
                 //echoFilter.wetMix = distortionLevel*0.8f;
-                distortionFilter.enabled = true;
-                distortionFilter.distortionLevel = distortionLevel;
-                radioSource.volume = newVolume*0.5f ;
+                // distortionFilter.enabled = true;
+                //distortionFilter.distortionLevel = distortionLevel;
+                //radioSource.volume = 0.01f; // Mathf.Min(0.01f*newVolume,1-distortionLevel) ;
             }
                 
             // radioSource.dopplerLevel = (Time.time % (4 / speed) > (2 / speed) ? (2 / speed) - Time.time % (2 / speed) : Time.time % (4 / speed)) * speed; 

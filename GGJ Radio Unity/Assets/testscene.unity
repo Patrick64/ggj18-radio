@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -246,6 +246,7 @@ MonoBehaviour:
   arial: {fileID: 1519659966}
   solution: 1111
   isBroadcasting: 1
+  stationsToTurnOnWhenComplete: []
 --- !u!168 &21231907
 AudioEchoFilter:
   m_ObjectHideFlags: 0
@@ -253,7 +254,7 @@ AudioEchoFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 21231903}
   m_Enabled: 1
-  m_Delay: 500
+  m_Delay: 50
   m_DecayRatio: 0.5
   m_WetMix: 1
   m_DryMix: 1
@@ -486,7 +487,8 @@ MonoBehaviour:
   TestSlider: {fileID: 91509062}
   arial: {fileID: 1519659966}
   solution: 3333
-  isBroadcasting: 1
+  isBroadcasting: 0
+  stationsToTurnOnWhenComplete: []
 --- !u!82 &222443835
 AudioSource:
   m_ObjectHideFlags: 0
@@ -588,7 +590,7 @@ AudioEchoFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 222443833}
   m_Enabled: 1
-  m_Delay: 500
+  m_Delay: 50
   m_DecayRatio: 0.5
   m_WetMix: 1
   m_DryMix: 1
@@ -1402,7 +1404,8 @@ MonoBehaviour:
   TestSlider: {fileID: 91509062}
   arial: {fileID: 1519659966}
   solution: 2222
-  isBroadcasting: 1
+  isBroadcasting: 0
+  stationsToTurnOnWhenComplete: []
 --- !u!168 &788023594
 AudioEchoFilter:
   m_ObjectHideFlags: 0
@@ -1410,7 +1413,7 @@ AudioEchoFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 788023590}
   m_Enabled: 1
-  m_Delay: 500
+  m_Delay: 50
   m_DecayRatio: 0.5
   m_WetMix: 1
   m_DryMix: 1

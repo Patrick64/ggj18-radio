@@ -8,7 +8,7 @@ public class ArialTuning : MonoBehaviour {
     public Image arialSprite;
     private float xAxis;
     private float yAxis, angle;
-    private float arialSpriteAngle = 0;
+    public float arialSpriteAngle = 0;
 	// Use this for initialization
 	void Start () {
 		

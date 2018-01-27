@@ -35,7 +35,7 @@ public class ArialTuning : MonoBehaviour {
 
 
         float keyChange = Input.GetAxis("VerticalKey") ;
-        arialSpriteAngle -= keyChange * Time.deltaTime * 200;
+        arialSpriteAngle += keyChange * Time.deltaTime * 200;
         //float newAngle = arialSprite.transform.rotation.z + keyChange * Time.deltaTime * 100;
 
         if (arialSpriteAngle < -90) arialSpriteAngle = -90;

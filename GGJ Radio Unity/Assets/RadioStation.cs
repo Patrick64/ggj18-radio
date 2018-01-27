@@ -45,7 +45,7 @@ public class RadioStation : MonoBehaviour
 	{
         
 		float tuningDistance = Mathf.Abs(TestSlider.value - audioPosition);
-		if(tuningDistance < tuningGap)
+		if(tuningDistance < tuningGap && isBroadcasting)
 		{
 			float newVolume = (tuningGap - tuningDistance) / tuningGap;
 			radioSource.volume = newVolume;

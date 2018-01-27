@@ -17,6 +17,9 @@ public class StartScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(Input.GetAxis("Submit") > 0)
+		{
+			SceneManager.LoadScene("testscene");
+		}
 	}
 }

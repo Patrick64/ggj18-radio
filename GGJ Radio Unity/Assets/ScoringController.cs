@@ -10,6 +10,11 @@ public class ScoringController : MonoBehaviour
 
 	private int currentScoreIndex = 0;
 
+	private void Awake()
+	{
+		faderAnimator.gameObject.SetActive(true);
+	}
+
 	public void ScoreTriggered()
 	{
 		if(currentScoreIndex < ScoringLights.Length)

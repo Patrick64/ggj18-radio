@@ -1,10 +1,13 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class KeypadController : MonoBehaviour
 {
+	public static Action<string> KeycodeEntered;
+
 	public enum DigitalInput { Up, Down, Left, Right, Select };
 	public KeypadButton[] KeypadArray;
 	public Text DisplayText;
@@ -22,6 +25,8 @@ public class KeypadController : MonoBehaviour
 
 	private string currentCode = "";
 
+	private bool upPressed = false, downPressed = false, leftPressed = false, rightPressed = false, selectPressed = false;
+
 	private void Start()
 	{
 		KeypadArray[selectedKey].animator.SetBool("Selected", true);
@@ -29,6 +34,71 @@ public class KeypadController : MonoBehaviour
 
 	private void Update()
 	{
+		if(Input.GetAxis("PadHorizontal") > 0)
+		{
+			if(!rightPressed)
+			{
+				rightPressed = true;
+				RightPressed();
+			}
+		}
+		else
+		{
+			rightPressed = false;
+		}
+
+		if(Input.GetAxis("PadHorizontal") < 0)
+		{
+			if(!leftPressed)
+			{
+				leftPressed = true;
+				LeftPressed();
+			}
+		}
+		else
+		{
+			leftPressed = false;
+		}
+
+		if(Input.GetAxis("PadVertical") > 0)
+		{
+			if(!upPressed)
+			{
+				upPressed = true;
+				UpPressed();
+			}
+		}
+		else
+		{
+			upPressed = false;
+		}
+
+		if(Input.GetAxis("PadVertical") < 0)
+		{
+			if(!downPressed)
+			{
+				downPressed = true;
+				DownPressed();
+			}
+		}
+		else
+		{
+			downPressed = false;
+		}
+
+		if(Input.GetAxis("Submit") > 0)
+		{
+			if(!selectPressed)
+			{
+				selectPressed = true;
+				SelectPressed();
+			}
+		}
+		else
+		{
+			selectPressed = false;
+		}
+
 		//Testing inputs
 		if(Input.GetKeyDown(KeyCode.UpArrow))
 		{
@@ -49,12 +119,8 @@ public class KeypadController : MonoBehaviour
 		{
 			DigitalInputPressed(DigitalInput.Right);
 		}
-
-		if(Input.GetKeyDown(KeyCode.Return))
-		{
-			DigitalInputPressed(DigitalInput.Select);
-		}
 	}
+
 	public void DigitalInputPressed(DigitalInput buttonIn)
 	{
 		switch(buttonIn)
@@ -127,8 +193,14 @@ public class KeypadController : MonoBehaviour
 				UpdateText((selectedKey + 1).ToString());
 				break;
 			case 9:
-				Debug.Log(currentCode);
-				ClearText();
+				if(currentCode.Length == 4)
+				{
+					if(KeycodeEntered != null)
+					{
+						KeycodeEntered.Invoke(currentCode);
+					}
+					ClearText();
+				}
 				break;
 			case 10:
 				UpdateText("0");

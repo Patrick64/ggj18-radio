@@ -30,6 +30,10 @@ public class KeypadController : MonoBehaviour
 	private void Start()
 	{
 		KeypadArray[selectedKey].animator.SetBool("Selected", true);
+		for(int i = 0; i < KeypadArray.Length; i++)
+		{
+			KeypadArray[i].keyIndex = i;
+		}
 	}
 
 	private void Update()
@@ -100,7 +104,7 @@ public class KeypadController : MonoBehaviour
 		}
 
 		//Testing inputs
-		if(Input.GetKeyDown(KeyCode.UpArrow))
+		/*if(Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			DigitalInputPressed(DigitalInput.Up);
 		}
@@ -118,7 +122,7 @@ public class KeypadController : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.RightArrow))
 		{
 			DigitalInputPressed(DigitalInput.Right);
-		}
+		}*/
 	}
 
 	public void DigitalInputPressed(DigitalInput buttonIn)
@@ -249,5 +253,11 @@ public class KeypadController : MonoBehaviour
 				KeypadArray[i].animator.SetBool("Selected", false);
 			}
 		}
+	}
+
+	public void KeyClicked(int keyIndex)
+	{
+		selectedKey = keyIndex;
+		SelectPressed();
 	}
 }

@@ -45,8 +45,11 @@ public class StationController : MonoBehaviour
 			{
 				solutionFound = true;
 				RadioStations[i].DeactivateAudio();
+                foreach (RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
+                {
+                    station.ActivateAudio();
+                }
 				scoreController.ScoreTriggered();
-				break;
 			}
 		}
 		

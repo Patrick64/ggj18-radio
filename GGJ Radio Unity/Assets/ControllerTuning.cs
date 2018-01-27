@@ -20,7 +20,7 @@ public class ControllerTuning : MonoBehaviour {
         Vector2 newPosition = new Vector2(xAxis, yAxis);
         if (this.lastPosition != null && xAxis != 0 && yAxis != 0)
         {
-            float angle = Vector2.SignedAngle((Vector2)lastPosition, newPosition)*0.01f;
+            float angle = Vector2.SignedAngle((Vector2)lastPosition, newPosition)*0.04f;
             if (angle > 0.7) angle = 0.7f;
             if (angle < -0.7) angle = -0.7f;
             float sliderChange = Time.deltaTime * angle;

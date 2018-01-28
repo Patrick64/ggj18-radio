@@ -11,7 +11,8 @@ public class KeypadController : MonoBehaviour
 	public enum DigitalInput { Up, Down, Left, Right, Select };
 	public KeypadButton[] KeypadArray;
 	public Text DisplayText;
-    public AudioSource keypadAudioSource;
+    public AudioSource keypadPressSound;
+    public AudioSource keypadMoveSound;
 
 	private int selectedKey
 	{

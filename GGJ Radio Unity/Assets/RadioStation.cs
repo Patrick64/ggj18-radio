@@ -18,6 +18,7 @@ public class RadioStation : MonoBehaviour
     private AudioEchoFilter echoFilter;
     private AudioDistortionFilter distortionFilter;
     public RadioStation[] stationsToTurnOnWhenComplete; 
+    private bool permanentDeactivate = false;
 
 	void Start ()
 	{
@@ -31,15 +32,20 @@ public class RadioStation : MonoBehaviour
 
 	public void ActivateAudio()
 	{
-		isBroadcasting = true;
-		radioSource.Play();
+        if (!permanentDeactivate)
+        {
+            isBroadcasting = true;
+            radioSource.Play();
+        }
 	}
 
 	public void DeactivateAudio()
 	{
 		isBroadcasting = false;
 		radioSource.Stop();
-	}
+        permanentDeactivate = true;
+
+    }
 
 	void Update()
 	{

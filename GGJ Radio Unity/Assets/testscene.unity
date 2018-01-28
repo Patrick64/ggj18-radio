@@ -1546,7 +1546,8 @@ MonoBehaviour:
   arial: {fileID: 1519659966}
   solution: 2222
   isBroadcasting: 0
-  stationsToTurnOnWhenComplete: []
+  stationsToTurnOnWhenComplete:
+  - {fileID: 21231906}
 --- !u!168 &788023594
 AudioEchoFilter:
   m_ObjectHideFlags: 0

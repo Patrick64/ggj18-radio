@@ -38,7 +38,7 @@
 		"puzzleId": 2,
 		"solutions": ["1963"],
 		"source": "Audio/year_puzzle/martin_luther_king_1963.mp3",
-		"frequency": 89.8,
+		"frequency": 92,
 		"arial": 90,
 		"startsTurnedOn": true,
 		"unlockPuzzlesWhenSolved": [7]
@@ -60,7 +60,7 @@
 		"puzzleId": 3,
 		"solutions": ["1969"],
 		"source": "Audio/song_puzzles/Bryan Adams - Summer of 69.mp3",
-		"frequency": 103.0,
+		"frequency": 104.0,
 		"arial": 45,
 		"startsTurnedOn": true,
 		"unlockPuzzlesWhenSolved": [1,6]

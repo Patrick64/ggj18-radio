@@ -4,22 +4,22 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour {
-
+	public Animator faderAnimator;
 	// Use this for initialization
 	void Start () {
 		
 	}
 
     public void OnClick() {
-        SceneManager.LoadScene("testscene");
-    }
+		faderAnimator.SetTrigger("FadeOutScreen");
+	}
 
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetAxis("Submit") > 0)
 		{
-			SceneManager.LoadScene("testscene");
+			faderAnimator.SetTrigger("FadeOutScreen");
 		}
 	}
 }

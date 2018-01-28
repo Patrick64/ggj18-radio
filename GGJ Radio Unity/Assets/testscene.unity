@@ -2519,6 +2519,7 @@ GameObject:
   - component: {fileID: 1519659966}
   - component: {fileID: 1519659963}
   - component: {fileID: 1519659967}
+  - component: {fileID: 1519659968}
   m_Layer: 0
   m_Name: Controller
   m_TagString: Untagged
@@ -2619,6 +2620,17 @@ MonoBehaviour:
   - {fileID: 1703738644}
   faderAnimator: {fileID: 256158655}
   trapAnimator: {fileID: 1537860519}
+--- !u!114 &1519659968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1519659962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64de47fe718ffa04dacddd6af6ad0b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1537860515
 GameObject:
   m_ObjectHideFlags: 0

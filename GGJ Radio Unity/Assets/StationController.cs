@@ -7,6 +7,9 @@ public class StationController : MonoBehaviour
 {
 	public RadioStation[] RadioStations;
 	public AudioSource RadioStatic;
+    public AudioSource keypadAcceptSound;
+    public AudioSource keypadRejectSound;
+
 	private ScoringController scoreController;
     public Text keypadText;
 
@@ -67,11 +70,13 @@ public class StationController : MonoBehaviour
 		{
             //Debug.Log("Solution Incorrect");
             keypadText.text = fail[Random.Range(0, fail.Length)];
+            keypadRejectSound.PlayOneShot(keypadRejectSound.clip);
             StartCoroutine(setKeyPadText(1, "????"));
-
+            
         }
 		else
 		{
+            keypadAcceptSound.PlayOneShot(keypadAcceptSound.clip);
 			scoreController.ScoreTriggered();
 		}
     }

@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ScoringController : MonoBehaviour
 {
 	public Animator[] ScoringLights;
 	public Animator faderAnimator;
-
+    
 	private int currentScoreIndex = 0;
 
 	private void Awake()
@@ -19,6 +20,8 @@ public class ScoringController : MonoBehaviour
 	{
 		if(currentScoreIndex < ScoringLights.Length)
 		{
+            
+
 			ScoringLights[currentScoreIndex].SetTrigger("Scored");
 			currentScoreIndex++;
 
@@ -26,14 +29,16 @@ public class ScoringController : MonoBehaviour
 			{
 				faderAnimator.SetTrigger("FadeOutScreen");
 			}
-		}
+            
+
+        }
 		else
 		{
 			Debug.Log("Maths broke");
 		}
 	}
 
-	private void Update()
+    private void Update()
 	{
 		if(Input.GetKeyDown(KeyCode.R))
 		{

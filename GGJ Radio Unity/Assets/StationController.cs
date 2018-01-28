@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StationController : MonoBehaviour
 {
 	public RadioStation[] RadioStations;
 	public AudioSource RadioStatic;
 	private ScoringController scoreController;
+    public Text keypadText;
 
-	private void Awake()
+    private void Awake()
 	{
 		scoreController = GetComponent<ScoringController>();
 	}
@@ -38,32 +40,51 @@ public class StationController : MonoBehaviour
 
 	private void SolutionSent(string solution)
 	{
-		bool solutionFound = false;
+        string[] success = new string[] { "BRILL", "BOSS", "COOL", "RAD", "MONDO", "MEGA", "LEGIT", "PRIMO", "SICK" };
+        string[] fail = new string[] { "BUNK", "DAG", "LAME", "BOGUS" };
+
+
+        bool solutionFound = false;
 		for(int i = 0; i < RadioStations.Length; i++)
 		{
 			foreach(string solutionOption in RadioStations[i].solutions)
 			{
 				if(RadioStations[i].isBroadcasting && solutionOption == solution)
 				{
-					solutionFound = true;
-					RadioStations[i].DeactivateAudio();
-					foreach(RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
-					{
-						station.ActivateAudio();
-					}
-					scoreController.ScoreTriggered();
+                keypadText.text = success[Random.Range(0, success.Length)];
+                StartCoroutine(setKeyPadText(1, "????"));
+                solutionFound = true;
+				RadioStations[i].DeactivateAudio();
+                foreach (RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
+                {
+                    station.ActivateAudio();
+                }
+				scoreController.ScoreTriggered();
+                
+
 				}
 			}
 		}
 		
 		if(!solutionFound)
 		{
-			//ToDo: p[lay bad sound
-			//Debug.Log("Solution Incorrect");
-		}
-	}
+            //Debug.Log("Solution Incorrect");
+            keypadText.text = fail[Random.Range(0, fail.Length)];
+            StartCoroutine(setKeyPadText(1, "????"));
 
-	private void UpdateActiveStations()
+        }
+    }
+
+
+    IEnumerator setKeyPadText(float seconds, string text)
+    {
+
+        yield return new WaitForSeconds(seconds);
+        keypadText.text = text;
+    }
+
+
+    private void UpdateActiveStations()
 	{
 		//ToDo
 	}

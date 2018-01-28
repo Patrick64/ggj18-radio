@@ -199,12 +199,15 @@ public class KeypadController : MonoBehaviour
 			case 9:
 				if(currentCode.Length == 4)
 				{
-					if(KeycodeEntered != null)
+                    
+                    if (KeycodeEntered != null)
 					{
-						KeycodeEntered.Invoke(currentCode);
+                           
+                        KeycodeEntered.Invoke(currentCode);
 					}
-					ClearText();
-				}
+                    currentCode = "";
+
+                }
 				break;
 			case 10:
 				UpdateText("0");

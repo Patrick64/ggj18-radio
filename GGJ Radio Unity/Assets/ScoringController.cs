@@ -8,6 +8,7 @@ public class ScoringController : MonoBehaviour
 {
 	public Animator[] ScoringLights;
 	public Animator faderAnimator;
+	public Animator trapAnimator;
     
 	private int currentScoreIndex = 0;
 
@@ -27,15 +28,20 @@ public class ScoringController : MonoBehaviour
 
 			if(currentScoreIndex >= ScoringLights.Length)
 			{
-				faderAnimator.SetTrigger("FadeOutScreen");
+				StartCoroutine(WaitThenFade());
 			}
-            
-
         }
 		else
 		{
 			Debug.Log("Maths broke");
 		}
+	}
+
+	private IEnumerator WaitThenFade()
+	{
+		trapAnimator.SetTrigger("TriggerEnd");
+		yield return new WaitForSeconds(2);
+		faderAnimator.SetTrigger("FadeOutScreen");
 	}
 
     private void Update()

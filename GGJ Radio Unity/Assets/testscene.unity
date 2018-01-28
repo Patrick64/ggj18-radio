@@ -2062,6 +2062,7 @@ MonoBehaviour:
   - {fileID: 788023593}
   - {fileID: 222443834}
   RadioStatic: {fileID: 523053940}
+  keypadText: {fileID: 1573462738}
 --- !u!4 &1519659964
 Transform:
   m_ObjectHideFlags: 0
@@ -2185,6 +2186,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1569840376}
+--- !u!114 &1573462738 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114471131928125986, guid: c35ab15f50bd64743b5adb3b08170cca,
+    type: 2}
+  m_PrefabInternal: {fileID: 250014075}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1675868851
 Prefab:
   m_ObjectHideFlags: 0

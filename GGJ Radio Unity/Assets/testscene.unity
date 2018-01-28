@@ -1287,6 +1287,12 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 51635796}
   m_Script: {fileID: 11500000, guid: 6036f20f0cc69d841a27aecf2135f004, type: 3}
+--- !u!114 &821786122 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114471131928125986, guid: c35ab15f50bd64743b5adb3b08170cca,
+    type: 2}
+  m_PrefabInternal: {fileID: 250014075}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &884659394
 GameObject:
   m_ObjectHideFlags: 0
@@ -1899,6 +1905,7 @@ MonoBehaviour:
   - {fileID: 1172553167}
   - {fileID: 2002427935}
   RadioStatic: {fileID: 523053940}
+  keypadText: {fileID: 821786122}
 --- !u!4 &1519659964
 Transform:
   m_ObjectHideFlags: 0

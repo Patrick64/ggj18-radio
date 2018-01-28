@@ -51,17 +51,14 @@ public class StationController : MonoBehaviour
 			{
 				if(RadioStations[i].isBroadcasting && solutionOption == solution)
 				{
-                keypadText.text = success[Random.Range(0, success.Length)];
-                StartCoroutine(setKeyPadText(1, "????"));
-                solutionFound = true;
-				RadioStations[i].DeactivateAudio();
-                foreach (RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
-                {
-                    station.ActivateAudio();
-                }
-				scoreController.ScoreTriggered();
-                
-
+					keypadText.text = success[Random.Range(0, success.Length)];
+					StartCoroutine(setKeyPadText(1, "????"));
+					solutionFound = true;
+					RadioStations[i].DeactivateAudio();
+					foreach (RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
+					{
+						station.ActivateAudio();
+					}
 				}
 			}
 		}
@@ -73,6 +70,10 @@ public class StationController : MonoBehaviour
             StartCoroutine(setKeyPadText(1, "????"));
 
         }
+		else
+		{
+			scoreController.ScoreTriggered();
+		}
     }
 
 

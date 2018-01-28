@@ -13,7 +13,7 @@ public class RadioStation : MonoBehaviour
     public float arialGap;
 	public Slider TestSlider;
     public ArialTuning arial;
-	public string solution;
+	public string[] solutions;
 	public bool isBroadcasting;
     private AudioEchoFilter echoFilter;
     private AudioDistortionFilter distortionFilter;

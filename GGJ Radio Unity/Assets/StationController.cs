@@ -47,8 +47,10 @@ public class StationController : MonoBehaviour
         bool solutionFound = false;
 		for(int i = 0; i < RadioStations.Length; i++)
 		{
-			if(RadioStations[i].isBroadcasting && RadioStations[i].solution == solution)
+			foreach(string solutionOption in RadioStations[i].solutions)
 			{
+				if(RadioStations[i].isBroadcasting && solutionOption == solution)
+				{
                 keypadText.text = success[Random.Range(0, success.Length)];
                 StartCoroutine(setKeyPadText(1, "????"));
                 solutionFound = true;
@@ -60,8 +62,9 @@ public class StationController : MonoBehaviour
 				scoreController.ScoreTriggered();
                 
 
-            }
-        }
+				}
+			}
+		}
 		
 		if(!solutionFound)
 		{

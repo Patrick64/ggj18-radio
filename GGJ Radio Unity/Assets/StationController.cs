@@ -41,20 +41,24 @@ public class StationController : MonoBehaviour
 		bool solutionFound = false;
 		for(int i = 0; i < RadioStations.Length; i++)
 		{
-			if(RadioStations[i].isBroadcasting && RadioStations[i].solution == solution)
+			foreach(string solutionOption in RadioStations[i].solutions)
 			{
-				solutionFound = true;
-				RadioStations[i].DeactivateAudio();
-                foreach (RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
-                {
-                    station.ActivateAudio();
-                }
-				scoreController.ScoreTriggered();
+				if(RadioStations[i].isBroadcasting && solutionOption == solution)
+				{
+					solutionFound = true;
+					RadioStations[i].DeactivateAudio();
+					foreach(RadioStation station in RadioStations[i].stationsToTurnOnWhenComplete)
+					{
+						station.ActivateAudio();
+					}
+					scoreController.ScoreTriggered();
+				}
 			}
 		}
 		
 		if(!solutionFound)
 		{
+			//ToDo: p[lay bad sound
 			//Debug.Log("Solution Incorrect");
 		}
 	}

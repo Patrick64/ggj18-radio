@@ -11,6 +11,8 @@ public class KeypadController : MonoBehaviour
 	public enum DigitalInput { Up, Down, Left, Right, Select };
 	public KeypadButton[] KeypadArray;
 	public Text DisplayText;
+    public AudioSource keypadPressSound;
+    public AudioSource keypadMoveSound;
 
 	private int selectedKey
 	{
@@ -152,7 +154,8 @@ public class KeypadController : MonoBehaviour
 		if(selectedKey - 3 >= 0)
 		{
 			selectedKey -= 3;
-		}
+            keypadMoveSound.PlayOneShot(keypadMoveSound.clip);
+        }
 	}
 
 	private void DownPressed()
@@ -160,7 +163,8 @@ public class KeypadController : MonoBehaviour
 		if(selectedKey + 3 < KeypadArray.Length)
 		{
 			selectedKey += 3;
-		}
+            keypadMoveSound.PlayOneShot(keypadMoveSound.clip);
+        }
 	}
 
 	private void LeftPressed()
@@ -169,7 +173,8 @@ public class KeypadController : MonoBehaviour
 		if(col > 0)
 		{
 			selectedKey--;
-		}
+            keypadMoveSound.PlayOneShot(keypadMoveSound.clip);
+        }
 	}
 
 	private void RightPressed()
@@ -178,7 +183,8 @@ public class KeypadController : MonoBehaviour
 		if(col < 2)
 		{
 			selectedKey++;
-		}
+            keypadMoveSound.PlayOneShot(keypadMoveSound.clip);
+        }
 	}
 
 	private void SelectPressed()
@@ -195,7 +201,8 @@ public class KeypadController : MonoBehaviour
 			case 7:
 			case 8:
 				UpdateText((selectedKey + 1).ToString());
-				break;
+                keypadPressSound.PlayOneShot(keypadPressSound.clip);
+                break;
 			case 9:
 				if(currentCode.Length == 4)
 				{
